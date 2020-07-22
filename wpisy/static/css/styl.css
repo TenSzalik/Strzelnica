@@ -1,0 +1,205 @@
+html, body, .grid-container { height: 100%; margin: 0; }
+
+.grid-container *:after { 
+    border: 1px solid orange;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr 1.5fr 0.5fr;
+  grid-template-rows: 0.3fr 0.9fr 2fr;
+  grid-template-areas: "baner baner baner baner" "tlo1 konsola konsola tlo2" "tlo1 przestrzen przestrzen tlo2";
+}
+
+.baner { 
+    grid-area: baner; 
+    background-color: rgba(255, 233, 162, 0.972);
+    padding: 5px;
+    box-shadow:10px 10px 50px 10px rgb(255, 197, 90) inset;
+    border: 10px solid transparent;
+    border-image: url(border.png) 20% round;
+}
+
+.konsola { 
+    grid-area: konsola; 
+    background-color: rgba(255, 233, 162, 0.972);
+
+}
+
+.konsola2 { 
+    grid-area: konsola; 
+    background-color: moccasin;
+    padding: 20px;
+    width: 100%;
+}
+
+.przestrzen { 
+    grid-area: przestrzen; 
+    background-color: rgba(255, 233, 162, 0.972);
+    background-image: url("gazeta2.jpg");
+    padding: 10px;
+    box-shadow:10px 10px 50px 10px rgb(61, 56, 45) inset;
+    border: 10px solid transparent;
+    border-image: url(border.png) 30% round;
+}
+
+.tlo1 { 
+    grid-area: tlo1; 
+    background-color: #ffeaa5;
+}
+
+.tlo2 { 
+    grid-area: tlo2; 
+    background-color: #ffeaa5;
+}
+
+.przestrzen2{
+    grid-area: przestrzen; 
+    background-color: #C2B280;
+    padding: 10px;
+}
+
+.przestrzen3{
+    grid-area: przestrzen; 
+    background-color: #ffeaa5;
+    padding: 10px;
+}
+
+.podban{
+    font-family: 'Western Normal';
+    font-size: 30px;
+    color: rgb(202, 64, 0);
+    text-align: center;
+}
+p{
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    color: white;
+}
+
+.informacja{
+    font-family: 'EB Garamond', serif;
+    color: rgb(70, 82, 92);
+}
+
+.postowe{
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    color: rgb(58, 40, 16);
+}
+
+.data{
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    color: rgb(58, 40, 16);
+    padding: 10px;
+}
+
+.kolorek{
+    color: rgb(246, 183, 153);
+}
+.kolorek2{
+    color: rgb(230, 75, 4);
+}
+
+.post{
+    margin-top: 0;
+    padding: 10px;
+    margin-left: 20px;
+    max-width: 20%;
+    float: left;
+    min-width: 165px;
+    margin-bottom: 10px;
+    background-image: url("papier.png");
+    background-size: 185px 250px, cover;
+}
+h2{
+    font-family: 'Western Normal';
+    color: rgb(202, 64, 0);
+}
+
+@font-face {
+    font-family: 'Western Normal';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Western Normal'), url('WEST____.woff') format('woff');
+    }
+
+.guzik{
+    background-color: rgba(255, 233, 162, 0.972);
+    border: none;
+    color: rgb(202, 64, 0);
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'EB Garamond', serif;
+    border-radius: 8px;
+}
+.guzik:hover{
+    opacity: 1;
+}
+
+.lewy{
+    margin: 10px;
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: solid black 5px;
+    border-radius: 10px;
+    background-color: black;
+    opacity: 0.6;
+}
+
+.prawy{
+    margin: 10px;
+    float: left;
+    width: 40%;
+    padding: 20px;
+    border: solid black 5px;
+    border-radius: 10px;
+    background-color: black;
+    opacity: 0.6;
+}
+
+.ogloszenie{
+    font-family: 'Western Normal';
+    color: white;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+a{
+    text-decoration-line: none;
+}
+
+#pozaZdj{
+    padding: 10px;
+    width: 50%;
+    margin: 0 auto;
+    display: table;
+    text-align: center;
+}
+
+.lewy2{
+    width: 100%;
+}
+
+.cieniowanie{
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    color: rgb(246, 183, 153);
+    transition: 0.3;
+}
+.cieniowanie:hover{
+    text-decoration-color: rgb(202, 64, 0);
+    color: white;
+}

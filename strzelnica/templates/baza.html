@@ -1,0 +1,47 @@
+{% load static %}
+<html>
+    <head>
+        <title>Strzelnica</title>
+        <link rel="Stylesheet" href="{% static '/css/styl.css' %}" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel|EB+Garamond|Marcellus+SC&display=swap" rel="stylesheet">
+    </head>
+    <body>
+            <div class="grid-container">
+                    <div class="baner">
+                        <a href="/"><h1 class="podban">★ STATYSTYKI STRZELNICY ★</h1></a>
+                    </div>
+                    <div class="konsola">
+                        <div class="lewy">
+                             <span class="ogloszenie">Zamiesc ogłoszenie</span>
+                            <p class="kolorek">
+                                <form method="POST" class="post-form">{% csrf_token %}
+                                    {{ form.as_p }}
+                                    <button type="submit" class="guzik">Wstaw</button>
+                                </form>
+                            </p>
+                        </div>
+                        <div class="prawy">
+                             <span class="ogloszenie">Gazeta codzienna</span>
+                            <p class="kolorek">Nawyższa skuteczność: <span class="kolorek2" id="wynik3"></span> 
+                            <span class="kolorek" id="wynik4"></span></p>
+                            <i><p class="kolorek">Skuteczność jest liczona wg. wzoru: x = punkty * dystans / oddane strzaly</p></i>
+                            <script type="text/javascript">
+                                document.getElementById("wynik3").innerHTML = sessionStorage.getItem("najskutecz");
+                                document.getElementById("wynik4").innerHTML = sessionStorage.getItem("najstrzelec");
+                            </script>
+                            <span class="kolorek">Strzelcy:</span><br><br>
+                            <u><a class="cieniowanie" href=" {% url 'Strzelcy' %}">Gracjan</a><br></u>
+                            <u><a class="cieniowanie" href=" {% url 'Konrad' %}">Konrad</a><br></u>
+                            <u><a class="cieniowanie" href=" {% url 'Kura' %}">Kura</a><br></u>
+                            <u><a class="cieniowanie" href=" {% url 'Hampel' %}">Hampel</a></u>
+                        </div>
+                    </div>
+                    <div class="przestrzen">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                    <div class="tlo1"></div>
+                    <div class="tlo2"></div>
+                  </div>
+    </body>
+</html>

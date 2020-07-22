@@ -1,0 +1,48 @@
+{% extends 'baza.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<script type="text/javascript"> 
+    var tablica = [];
+    var naj_wynik = 0;
+    var naj_strzelec = "nikt";
+    var tabdata = [];
+</script>
+<div id="wszysposty">
+{% for wpis in posts %}
+<div class="post">
+    <h2>★ {{ wpis.strzelec }} ★</h2>
+    <p class="postowe">Liczba punktów: <span class="kolorek2">{{ wpis.punkty }}</span></p>
+    <p class="postowe">Oddane strzały: <span class="kolorek2">{{ wpis.oddane_strzaly }}</span></p>
+    <p class="postowe">Dystans: <span class="kolorek2">{{ wpis.dystans }}</span></p>
+    <p class="postowe">Skuteczność: <span class="kolorek2">{{ wpis.wynik }}</span></p>
+    <div class="date">
+        {% language 'pl' %}
+        <span class="data">{{ wpis.published_date|date:'d N, Y' }}</span>
+        {% endlanguage %}
+    </div>
+    <script type="text/javascript"> 
+        var a = parseFloat("{{wpis.wynik}}");
+        var b = parseFloat("{{ wpis.published_date|date:'d' }}");
+
+        tablica.push(a);
+        tabdata.push(b);
+
+        if(naj_wynik < a){
+            naj_strzelec = "{{wpis.strzelec}}";
+            naj_wynik = a
+        }else{
+            console.log("miau");
+        }
+    </script>
+</div>
+{% endfor %}
+</div>
+    <script type="text/javascript">
+        var d = Math.max.apply(null, tablica)
+        sessionStorage.setItem("najskutecz", d);
+        sessionStorage.setItem("najstrzelec", naj_strzelec);
+        tabdata.reverse();   
+    </script>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'baza2.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div id="pozaZdj">
+<img class="gracjan1" src="{% static '/css/Gonrad.png' %}" alt="Ja">
+
+    <h2>Konrad Slayerski</h2>
+    <style>
+        .gracjan1{
+            float: left;
+            border: 1px solid rgb(197, 128, 0);
+            border-radius: 4px;
+            padding: 5px;
+            width: 200;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var b = 0;
+        var licznik = 0;
+        var tablica = [];
+    </script>
+    <p><i>Choć Adasiu, pokaże ci małe kotki</i></p>
+    <span class="informacja">Średnia skuteczność strzelca: </span>
+    <span class="informacja" id="wyniki"></span><br>
+    <span class="informacja">Ilość turniejów: </span>
+    <span class="informacja" id="wyniki2"></span><br>
+    <span class="informacja">Najwyższa skuteczność: </span>
+    <span class="informacja" id="wyniki3"></span>
+</div>
+    {% for wpis in posts %}
+        <div class="wOdsylaczu">
+            {% if wpis.strzelec == "Konrad" %}
+                <script type="text/javascript"> 
+                    licznik += 1;
+                    var a = parseFloat("{{wpis.wynik}}");
+                    b += a; 
+                    tablica.push(a);
+                    var d = Math.max.apply(null, tablica)
+                </script>
+            {% else %}
+            {% endif %}
+            <script type="text/javascript">
+                var c = b / licznik;
+                document.getElementById("wyniki").innerHTML = c;
+                document.getElementById("wyniki2").innerHTML = licznik;
+                document.getElementById("wyniki3").innerHTML = d;
+            </script>
+        </div>
+{% endfor %}
+{% endblock %}
